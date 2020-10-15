@@ -1,0 +1,16 @@
+.round-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.flex-jc-sp {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-ai-c {
+    display: flex;
+    align-items: center;
+}
+
