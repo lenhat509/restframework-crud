@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from rest_framework.decorators import api_view, parser_classes
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
 from rest_framework import serializers
 from rest_framework.response import Response
 from . models import Post
@@ -14,6 +15,7 @@ def posts(request):
 
 
 @api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def create_post(request):
     post = PostSerializer(data=request.data)
     if post.is_valid():
@@ -22,6 +24,7 @@ def create_post(request):
     return Response(posts.errors)
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def post_detail(request, pk):
     post = Post.objects.filter(pk=pk).first()
     if post:
@@ -30,6 +33,7 @@ def post_detail(request, pk):
     return Response(status=404)
 
 @api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def update_post(request, pk):
     post = Post.objects.filter(pk=pk).first()
     if post:
@@ -43,6 +47,7 @@ def update_post(request, pk):
     return Response(status=404)
 
 @api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def delete_post(request, pk):
     post = Post.objects.filter(pk=pk).first()
     if post:
