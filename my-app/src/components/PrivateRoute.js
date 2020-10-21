@@ -1,8 +1,10 @@
 import React from 'react'
-import {Route, Redirect} from 'react-router-dom'
+import {Route, Redirect, useLocation} from 'react-router-dom'
+import { useAuth } from './Auth'
 
-const PrivateRoute = ({userToken, component: Component, ...rest}) => {
-    console.log(rest)
+const PrivateRoute = ({component: Component, ...rest}) => {
+    const { userToken } = useAuth()
+    const location = useLocation()
     return (
     <>
         {userToken
@@ -11,7 +13,7 @@ const PrivateRoute = ({userToken, component: Component, ...rest}) => {
                 )} />
             : <Redirect to={{
                 pathname: '/login',
-                state: rest.location
+                state: location
             }}/>}
     </>
     )
