@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-function App() {
+function Post() {
   
   const [posts, setPosts] = useState([])
   const postRef = useRef('')
@@ -38,4 +38,4 @@ function App() {
   );
 }
 
-export default App;
+export default Post;

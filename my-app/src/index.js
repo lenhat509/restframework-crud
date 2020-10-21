@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-
+import App from './components/App';
+import Auth from './components/Auth'
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Auth>
     <App />
-  </React.StrictMode>,
+  </Auth>,
   document.getElementById('root')
 );
 
