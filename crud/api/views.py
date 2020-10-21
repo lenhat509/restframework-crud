@@ -21,7 +21,7 @@ def create_post(request):
     if post.is_valid():
         post.save(author=request.user)
         return Response(post.data, status=200)
-    return Response(posts.errors)
+    return Response(post.errors)
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
