@@ -1,5 +1,9 @@
-import React, {useState} from 'react'
-export const AuthContext = React.createContext()
+import React, {useState, useContext} from 'react'
+const AuthContext = React.createContext()
+
+export const useAuth = () => {
+    return useContext(AuthContext)
+}
 
 const Auth = ({children}) => {
     const [userToken, setUserToken] = useState(null)

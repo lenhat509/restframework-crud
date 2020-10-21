@@ -1,9 +1,11 @@
 import React, { useRef } from 'react'
 import { useHistory } from 'react-router-dom'
+import { useAuth } from './Auth'
 
-const NewPost = ({userToken}) => {
+const NewPost = () => {
     const contentRef = useRef('')
     const history = useHistory()
+    const { userToken } = useAuth()
 
     const createPost = (e) => {
         e.preventDefault()

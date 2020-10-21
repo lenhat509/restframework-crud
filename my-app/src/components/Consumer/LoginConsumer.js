@@ -1,12 +1,12 @@
 import React from 'react'
-import {AuthContext} from './Auth'
-import Login from './Login'
+import {AuthContext} from '../Auth'
+import Login from '../Login'
 
-const LoginConsumer = () => {
+const LoginConsumer = (props) => {
     return (
         <AuthContext.Consumer>
             {(value) => (
-                <Login {...value}/>
+                <Login {...value} {...props}/>
             )}
         </AuthContext.Consumer>
     )

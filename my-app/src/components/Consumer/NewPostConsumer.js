@@ -1,13 +1,13 @@
-import {AuthContext} from './Auth'
+import {AuthContext} from '../Auth'
 
 import React from 'react'
-import NewPost from './NewPost'
+import NewPost from '../NewPost'
 
-const NewPostConsumer = () => {
+const NewPostConsumer = (props) => {
     return (
         <AuthContext.Consumer>
             {({userToken}) => (
-                <NewPost userToken={userToken}/>
+                <NewPost userToken={userToken} {...props}/>
             )}
         </AuthContext.Consumer>
     )

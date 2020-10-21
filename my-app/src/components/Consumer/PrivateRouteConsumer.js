@@ -1,12 +1,12 @@
 import React from 'react'
-import {AuthContext} from './Auth'
-import PrivateRoute from './PrivateRoute'
+import {AuthContext} from '../Auth'
+import PrivateRoute from '../PrivateRoute'
 
-const PrivateRouteConsumer = () => {
+const PrivateRouteConsumer = (props) => {
     return (
         <AuthContext.Consumer>
             {({userToken}) => (
-                <PrivateRoute userToken={userToken}/>
+                <PrivateRoute userToken={userToken} {...props}/>
             )}
         </AuthContext.Consumer>
     )

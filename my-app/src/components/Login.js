@@ -1,10 +1,12 @@
 import React, {useRef} from 'react'
 import { Redirect, useLocation } from 'react-router-dom'
+import { useAuth } from './Auth'
 
-const Login = ({login, userToken}) => {
+const Login = () => {
     const usernameRef = useRef('')
     const pwRef = useRef('')
     const location = useLocation()
+    const { login, userToken } = useAuth()
 
     const handleLogin = (e) => {
         e.preventDefault()
